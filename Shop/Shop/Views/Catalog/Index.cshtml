@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Каталог</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Название</th>
+                    <th>Тип товара</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in ViewBag.Catalog)
+                {
+                    <tr>
+                        <th><input name="ItemId" value="@item.Id" style="display:none" /></th>
+                        <th>@item.Id</th>
+                        <th>@item.Name</th>
+                        <th>@item.Type</th>
+                        <th>@item.Description</th>
+                        <th>@item.Price</th>
+                        <th>@item.Amount</th>
+                        <th><input name="amount" /></th>
+                        <th><button  type="submit" formaction="../Catalog/Index" formmethod="post">Добавить</button></th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
